@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - SAH KIRANA STORE</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <style>
+        /* Ensure the body takes up the full viewport height */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        /* Main content should grow to fill available space */
+        main {
+            flex: 1;
+        }
+       /* Category hover effect */
+       .category {
+            display: inline-block;
+            text-align: center;
+            margin: 10px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .category img {
+            transition: transform 0.3s ease;
+        }
+
+        .category:hover h3,
+        .category:hover img {
+            color: black;
+            transform: scale(1.1); /* Slightly enlarge both the icon and text */
+        }
+
+        /* Add styles for the icons next to navigation links */
+        nav a {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: #000; /* Change to your desired color */
+            margin-right: 20px;
+        }
+        
+        nav a img {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px; /* Space between icon and text */
+        }
+
+        nav a:hover {
+            color: #f6f6f6; /* Change to your desired hover color */
+        }
+
+        .category h3 {
+            margin: 10px 0;
+        }
+
+        .category h3 a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .category h3 a:hover {
+            text-decoration: underline;
+        }
+
+        #search-results {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            display: none; /* Hidden initially */
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+        }
+
+        .search-result-item img {
+            width: 50px;
+            margin-right: 10px;
+        }
+
+        .search-result-item h3 {
+            margin: 0;
+        }
+
+        .search-result-item:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Footer styles to keep it at the bottom */
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SAH KIRANA STORE</h1>
+        <nav>
+            <a href="index.html">
+                <img src="icon/home-icon-silhouette.png" alt="Home Icon">
+                Home
+            </a>
+            <a href="cart.html">
+                <img src="icon/grocery-store.png" alt="Cart Icon">
+                Cart
+                <span id="cart-notification" class="notification">0</span>
+            </a>
+            <a href="checkout.html">
+                <img src="icon/checklist.png" alt="Checkout Icon">
+                Checkout
+            </a>
+        </nav>
+        <!-- Search bar added here -->
+        <form id="search-form" action="#" onsubmit="searchProduct(); return false;">
+            <input type="text" id="search-input" placeholder="Search for products...">
+            <button type="submit">Search</button>
+        </form>
+    </header>
+    <section id="search-results"></section>
+
+    <!-- New Section for Categories with Icons -->
+   
+    
+    <main>
+        <section id="cart">
+            <h2>Shopping Cart</h2>
+            <div id="cart-items"></div>
+            <p id="total-price">Total Price: ₹0</p>
+            <a href="BuyNow.html" class="checkout-button">Proceed to Checkout</a>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="contact-info">
+            <p><strong>Address:</strong> Madhuvan, Kanti, Kalwari, Muzaffarpur, Bihar 843108</p>
+            <p><strong>Contact:</strong> 7992285652, 9934430553</p>
+        </div>
+
+        <!-- Social Media Icons -->
+        <div class="social-icons">
+            <a href="https://www.facebook.com/yourprofile" target="_blank">
+                <img src="icon/facebook.png" alt="Facebook Icon">
+            </a>
+            <a href="https://www.linkedin.com/in/yourprofile" target="_blank">
+                <img src="icon/linkedin.png" alt="LinkedIn Icon">
+            </a>
+            <a href="https://www.instagram.com/yourprofile" target="_blank">
+                <img src="icon/instagram.png" alt="Instagram Icon">
+            </a>
+        </div>
+        <p>&copy; 2024 SAH KIRANA STORE</p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

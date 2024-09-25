@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saraswati Aqua Neer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1 data-lang="title">SARASWATI AQUA NEER</h1>
+        <p data-lang="subtitle">Purified Water Delivered at Your Doorstep</p>
+        <div id="language-switcher">
+            <label for="language-select" data-lang="language">Select Language:</label>
+            <select id="language-select">
+                <option value="en">English</option>
+                <option value="hi">Hindi</option>
+            </select>
+        </div>
+    </header>
+
+    <section id="order-section">
+        <h2 data-lang="order-title">Order Water Now</h2>
+        <form id="order-form">
+            <label for="name" data-lang="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="address" data-lang="address">Delivery Address:</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="phone" data-lang="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="quantity" data-lang="quantity">Number of 20L Bottles:</label>
+            <input type="number" id="quantity" name="quantity" min="1" required>
+
+            <label for="event" data-lang="event">Is this for an event/wedding?</label>
+            <select id="event" name="event">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+
+            <p id="total-price" data-lang="total-price">Total Price: ₹0</p>
+
+            <button type="submit" data-lang="place-order">Place Order</button>
+        </form>
+        <p id="order-response"></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Saraswati Aqua Neer. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

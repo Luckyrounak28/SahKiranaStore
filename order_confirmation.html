@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Ensure the body takes up the full viewport height */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        /* Main content should grow to fill available space */
+        main {
+            flex: 1;
+        }
+
+        /* Footer styles to keep it at the bottom */
+        footer {
+            background-color: #28a745;
+            padding: 10px;
+            text-align: center;
+            border-top: 1px solid #ddd;
+        }
+
+        .contact-info {
+            margin-bottom: 10px;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            display: inline-block;
+        }
+
+        .social-icons img {
+            width: 24px;
+            height: 24px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Order Confirmed!</h1>
+    </header>
+    
+    <main>
+        <section class="confirmation">
+            <h2>Thank you for your order!</h2>
+            <p>We have received your order for <strong id="product-name"></strong> and it will be delivered to:</p>
+            <p id="delivery-address"></p>
+            <p><strong>Contact Number:</strong> <span id="contact-number"></span></p>
+            <p>Your total bill is ₹<span id="product-price"></span></p>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="contact-info">
+            <p><strong>Address:</strong> Madhuvan, Kanti, Kalwari, Muzaffarpur, Bihar 843108</p>
+            <p><strong>Contact:</strong> 7992285652, 9934430553</p>
+        </div>
+
+        <!-- Social Media Icons -->
+        <div class="social-icons">
+            <a href="https://www.facebook.com/yourprofile" target="_blank">
+                <img src="icon/facebook.png" alt="Facebook Icon">
+            </a>
+            <a href="https://www.linkedin.com/in/yourprofile" target="_blank">
+                <img src="icon/linkedin.png" alt="LinkedIn Icon">
+            </a>
+            <a href="https://www.instagram.com/yourprofile" target="_blank">
+                <img src="icon/instagram.png" alt="Instagram Icon">
+            </a>
+        </div>
+        <p>&copy; 2024 SAH KIRANA STORE</p>
+    </footer>
+    
+    <script>
+        // Extract order details from the URL
+        const params = new URLSearchParams(window.location.search);
+        const productName = params.get('product');
+        const productPrice = params.get('price');
+        const customerName = params.get('name');
+        const deliveryAddress = params.get('address');
+        const contactNumber = params.get('contact');
+        
+        // Display order confirmation details
+        document.getElementById('product-name').textContent = productName;
+        document.getElementById('product-price').textContent = productPrice;
+        document.getElementById('delivery-address').textContent = deliveryAddress;
+        document.getElementById('contact-number').textContent = contactNumber;
+    </script>
+</body>
+</html>

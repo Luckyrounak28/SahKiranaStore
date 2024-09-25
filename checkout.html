@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - SAH KIRANA STORE</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Ensure the body takes up the full viewport height */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            padding-top: 60px; /* Space for the fixed header */
+        }
+
+        /* Header styles */
+        header {
+            position: fixed; /* Make the header fixed */
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            display: flex;
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 10px;
+            background-color: #f8f8f8; 
+            z-index: 1000; 
+        }
+
+        /* Main content area */
+        main {
+            flex: 1;
+            padding: 20px; /* Padding for the main content */
+            margin-top: 20px; /* Space between the header and main content */
+        }
+
+        /* Checkout section styles */
+        #checkout {
+            margin-top: 20px; /* Additional margin for the checkout section */
+        }
+
+        /* Form styles */
+        form {
+            display: flex;
+            flex-direction: column; /* Stack labels and inputs */
+            gap: 10px; /* Space between form elements */
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #f8f8f8;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SAH KIRANA STORE</h1>
+        <form id="search-form" action="#" onsubmit="searchProduct(); return false;">
+            <input type="text" id="search-input" placeholder="Search for products...">
+            <button type="submit">Search</button>
+        </form>
+        <nav>
+            <a href="index.html">
+                <img src="icon/home-icon-silhouette.png" alt="Home Icon">
+                Home
+            </a>
+            <a href="cart.html">
+                <img src="icon/grocery-store.png" alt="Cart Icon">
+                Cart
+                <span id="cart-notification" class="notification">0</span>
+            </a>
+            <a href="checkout.html">
+                <img src="icon/checklist.png" alt="Checkout Icon">
+                Checkout
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="checkout">
+            <h2>Checkout</h2>
+            <form id="checkout-form" action="checkout.php" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <input type="hidden" id="cart-data" name="cart-data">
+                <button type="submit">Place Order</button>
+            </form>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 SAH KIRANA STORE</p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

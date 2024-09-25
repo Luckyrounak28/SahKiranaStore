@@ -1,0 +1,516 @@
+/* Reset default margin and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styling for the header logo */
+/* Styling for the header logo */
+header h1 {
+    font-size: 2.5rem; /* Attractive size for the logo */
+    font-weight: bold;
+    color: #fff; /* Matches the header's color */
+    text-align: center;
+    letter-spacing: 1px; /* Slight spacing between letters */
+    margin-bottom: 5px; /* Reduced margin for tighter spacing */
+    text-transform: uppercase; /* Makes the logo stand out */
+}
+
+/* Flexbox for centering the logo and the navigation links */
+header {
+    background: linear-gradient(45deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+    color: #fff;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centers logo and nav elements */
+}
+
+/* Navigation section adjustments */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Space between navigation links */
+    margin-top: 5px; /* Reduced margin between logo and navigation */
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between icon and text */
+    font-size: 1rem; /* Font size for navigation links */
+}
+
+nav a img {
+    width: 24px; /* Slightly larger icon sizes for balance */
+    height: 24px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Search bar layout adjustments */
+#search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px; /* Reduced margin to tighten layout */
+}
+
+#search-input {
+    width: 250px; /* Slightly increased width */
+    padding: 10px;
+    border: 2px solid #28a745;
+    border-right: none;
+    border-radius: 25px 0 0 25px;
+    outline: none;
+    font-size: 16px; /* Matches button font size */
+    height: 40px;
+}
+
+#search-form button {
+    padding: 0 15px;
+    border: 2px solid #28a745;
+    border-left: none;
+    border-radius: 0 25px 25px 0;
+    background-color: #28a745;
+    color: white;
+    font-size: 16px; /* Matches input font size */
+    cursor: pointer;
+    height: 40px; /* Match height of input */
+}
+
+/* Footer fix to stay at the bottom */
+footer {
+    background-color: #23a314;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(245, 245, 245); /* Light grey background */
+}
+
+header {
+    background: linear-gradient(45deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+    position: relative;
+    
+    /* Flexbox for centering */
+    display: flex;
+    justify-content: center;  /* Horizontal centering */
+    align-items: center;  /* Vertical centering */
+    flex-direction: column;  /* Stack content vertically */
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative; /* Needed for notification positioning */
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.offer {
+    background-color: rgb(255, 204, 0); /* Bright yellow color */
+    padding: 15px;
+    margin: 10px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.offer-content {
+    animation: slide 20s linear infinite; /* Slower animation */
+    white-space: nowrap;
+}
+
+@keyframes slide {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+main {
+    padding: 20px;
+}
+
+.product {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
+    background-color: #fff;
+}
+
+.product img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.product-info {
+    flex: 1;
+}
+
+.product-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.product-actions button {
+    background-color: #28a745; /* Green color */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px;
+}
+
+.product-actions button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+.product-actions a.buy-now {
+    background-color: #28a745; /* Bootstrap blue */
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none; /* Removes underline */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px;
+    display: inline-block; /* Aligns with the button */
+}
+
+.product-actions a.buy-now:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.notification {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 3px 7px;
+    font-size: 0.9em;
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Footer styles */
+footer {
+    background-color: #28a745; /* Light grey background for the footer */
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    font-size: 14px;
+    border-top: 1px solid #ddd; /* Add a top border to separate it from the main content */
+}
+
+/* Contact info styles */
+footer .contact-info {
+    margin-bottom: 10px;
+}
+
+footer .contact-info p {
+    margin: 5px 0;
+    font-weight: normal; /* Ensure text is not bold */
+}
+
+/* Social media icons styles */
+footer .social-icons {
+    margin-top: 10px;
+}
+
+footer .social-icons a {
+    margin: 0 10px;
+    text-decoration: none; /* Remove underline from links */
+}
+
+footer .social-icons a img {
+    width: 24px; /* Adjust size of icons */
+    height: 24px;
+    vertical-align: middle; /* Align icons with text */
+}
+
+footer .social-icons a:hover img {
+    opacity: 0.8; /* Slightly change opacity on hover for visual feedback */
+}
+
+/* Footer copyright text */
+footer p {
+    margin-top: 10px;
+    font-size: 12px; /* Smaller font size for copyright notice */
+    color: #333; /* Dark grey text color */
+}
+
+#search-form {
+    display: flex;
+    justify-content: center; /* Center the form horizontally */
+    align-items: center; /* Vertically center the elements */
+    margin-top: 20px;
+}
+
+#search-input {
+    width: 200px; /* Reduced width */
+    padding: 8px; /* Reduced padding */
+    border: 2px solid #28a745;
+    margin-left: -91px;
+    border-right: none; /* Remove right border to connect with button */
+    border-radius: 25px 0 0 25px; /* Rounded on the left side */
+    outline: none;
+    font-size: 14px; /* Smaller font size */
+    height: 40px; /* Reduced height */
+    box-sizing: border-box;
+}
+
+#search-form button {
+    padding: 0 15px; /* Reduced padding */
+    border: 2px solid #28a745;
+    margin-left: 186px;
+    margin-top: -55px;
+    border-left: none; /* Remove left border to attach with input */
+    border-radius: 0 25px 25px 0; /* Rounded on the right side */
+    background-color: #28a745;
+    color: white;
+    font-size: 14px; /* Smaller font size */
+    cursor: pointer;
+    height: 40px; /* Match height of input */
+    box-sizing: border-box;
+}
+
+#search-form button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+
+
+#cart {
+    margin: 40px auto;
+    width: 80%;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.cart-item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-item p {
+    margin: 0;
+}
+
+.cart-item button {
+    background-color: #cc0000; /* Red color for remove button */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.cart-item button:hover {
+    background-color: #990000; /* Darker red on hover */
+}
+
+.checkout-button {
+    display: inline-block;
+    background-color: #0044cc; /* Dark blue for checkout button */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.checkout-button:hover {
+    background-color: #0033aa; /* Darker blue on hover */
+}
+
+#checkout {
+    margin: 40px auto;
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin: 10px 0 5px 0;
+    font-weight: bold;
+}
+
+input[type="text"], input[type="email"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #0044cc; /* Blue border */
+    border-radius: 5px;
+    width: calc(100% - 22px); /* Full width minus padding */
+}
+
+button {
+    background-color: #0044cc; /* Dark blue background */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0033aa; /* Darker blue on hover */
+}
+/* Category Section */
+.categories {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.category-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.category {
+    text-align: center;
+    flex: 1;
+    margin: 10px;
+}
+
+.category img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.category h3 {
+    font-size: 18px;
+    color: #555;
+}
+
+
+.rows {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.col4 {
+    flex-basis: 23%;
+    margin-bottom: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.col4 img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.rating i {
+    color: #ff9f00;
+}
+
+p {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.btn {
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #218838;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .col4 {
+        flex-basis: 48%;
+    }
+}
+
+@media (max-width: 480px) {
+    .col4 {
+        flex-basis: 100%;
+    }
+
+    .rows {
+        justify-content: center;
+    }
+}

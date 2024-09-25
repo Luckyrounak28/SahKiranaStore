@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAH KIRANA STORE</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Ensure the body takes up the full viewport height */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        /* Main content should grow to fill available space */
+        main {
+            flex: 1;
+        }
+
+        /* Header styles */
+        header {
+            display: flex;
+            justify-content: space-between; /* Space between left and right */
+            align-items: center; /* Center vertically */
+            padding: 10px;
+            background-color: #f8f8f8; /* Background color for header */
+        }
+
+        /* Navigation styles */
+        nav {
+            display: flex;
+            align-items: center;
+            margin-left: auto; /* Pushes nav to the right */
+        }
+
+        nav a {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: #000; /* Change to your desired color */
+            margin-left: 20px; /* Space between icons */
+        }
+        
+        nav a img {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px; /* Space between icon and text */
+        }
+
+        nav a:hover {
+            color: #f6f6f6; /* Change to your desired hover color */
+        }
+
+        /* Category hover effect */
+        .category {
+            display: inline-block;
+            text-align: center;
+            margin: 10px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .category img {
+            transition: transform 0.3s ease;
+        }
+
+        .category:hover h3,
+        .category:hover img {
+            color: black;
+            transform: scale(1.1); /* Slightly enlarge both the icon and text */
+        }
+
+        .category h3 {
+            margin: 10px 0;
+        }
+
+        .category h3 a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .category h3 a:hover {
+            text-decoration: underline;
+        }
+
+        /* Search results styles */
+        #search-results {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            display: none; /* Hidden initially */
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+        }
+
+        .search-result-item img {
+            width: 50px;
+            margin-right: 10px;
+        }
+
+        .search-result-item h3 {
+            margin: 0;
+        }
+
+        .search-result-item:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Footer styles to keep it at the bottom */
+        footer {
+            background-color: #f8f8f8;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SAH KIRANA STORE</h1>
+        <!-- Search bar added here -->
+        <form id="search-form" action="#" onsubmit="searchProduct(); return false;">
+            <input type="text" id="search-input" placeholder="Search for products...">
+            <button type="submit">Search</button>
+        </form>
+        <nav>
+            <a href="index.html">
+                <img src="icon/home-icon-silhouette.png" alt="Home Icon">
+                Home
+            </a>
+            <a href="cart.html">
+                <img src="icon/grocery-store.png" alt="Cart Icon">
+                Cart
+                <span id="cart-notification" class="notification">0</span>
+            </a>
+            <a href="checkout.html">
+                <img src="icon/checklist.png" alt="Checkout Icon">
+                Checkout
+            </a>
+        </nav>
+    </header>
+    <section id="search-results"></section>
+
+    <!-- New Section for Categories with Icons -->
+    <section class="categories">
+        <h2>Category</h2>
+        <div class="category-container">
+            <div class="category" onclick="filterProducts('milk')">
+                <img src="icon/milk.png" alt="Milk Parlour Icon" class="category-icon">
+                <h3>Milk Parlour</h3>
+            </div>
+            <div class="category" onclick="filterProducts('stationary')">
+                <img src="icon/stationary.png" alt="Stationary Icon" class="category-icon">
+                <h3>Stationary</h3>
+            </div>
+            <div class="category" onclick="filterProducts('ration')">
+                <img src="icon/grocery.png" alt="Ration Icon" class="category-icon">
+                <h3>Ration</h3>
+            </div>
+            <div class="category" onclick="filterProducts('colddrink')">
+                <img src="icon/drink.png" alt="Cold Drink Icon" class="category-icon">
+                <h3>Cold Drink</h3>
+            </div>
+            <div class="category">
+                <img src="icon/gallon.png" alt="Water Icon" class="category-icon">
+                <h3><a href="SARASWATI AQUA NEER/index.html">Order Water</a></h3>
+            </div>
+        </div>
+    </section>
+
+    <section class="offer">
+        <div class="offer-content">
+            <p>Special Offer: Get 20% off on all items! Hurry up, limited time only!</p>
+        </div>
+    </section>
+
+    <main>
+        <section id="products">
+            <h2>Products</h2>
+            <!-- Product with Quantity Selection -->
+            <div class="product" data-category="ration">
+                <img src="colddrink/rice.png" alt="India Gate Basmati Rice Everyday 5 kg">
+                <div class="product-info">
+                    <h3>India Gate Basmati Rice Everyday</h3>
+                    <p>Price: ₹500</p>
+                </div>
+                <div class="product-actions">
+                    <label for="quantity-rice">Quantity:</label>
+                    <select id="quantity-rice">
+                        <option value="1">1 kg</option>
+                        <option value="5">5 kg</option>
+                        <option value="10">10 kg</option>
+                    </select>
+                    <button onclick="addToCart('India Gate Basmati Rice Everyday', 500, document.getElementById('quantity-rice').value)">Add to Cart</button>
+                    <button onclick="buyNow('India Gate Basmati Rice Everyday', 500, document.getElementById('quantity-rice').value)">Buy Now</button>
+                </div>
+            </div>
+
+            <!-- Product with Volume Selection -->
+            <div class="product" data-category="colddrink">
+                <img src="image/pepsi.jpg" alt="Pepsi">
+                <div class="product-info">
+                    <h3>Pepsi</h3>
+                    <p>Price: ₹80</p>
+                </div>
+                <div class="product-actions">
+                    <label for="volume-pepsi">Volume:</label>
+                    <select id="volume-pepsi">
+                        <option value="250">250 ml</option>
+                        <option value="500">500 ml</option>
+                        <option value="750">750 ml</option>
+                    </select>
+                    <button onclick="addToCart('Pepsi', 80, document.getElementById('volume-pepsi').value)">Add to Cart</button>
+                    <button onclick="buyNow('Pepsi', 80, document.getElementById('volume-pepsi').value)">Buy Now</button>
+                </div>
+            </div>
+
+            <!-- Product with Piece Selection -->
+            <div class="product" data-category="stationary">
+                <img src="stationary/notebook.png" alt="Notebook">
+                <div class="product-info">
+                    <h3>Notebook</h3>
+                    <p>Price: ₹50</p>
+                </div>
+                <div class="product-actions">
+                    <label for="piece-notebook">Quantity:</label>
+                    <select id="piece-notebook">
+                        <option value="1">1 Piece</option>
+                        <option value="5">5 Pieces</option>
+                        <option value="10">10 Pieces</option>
+                    </select>
+                    <button onclick="addToCart('Notebook', 50, document.getElementById('piece-notebook').value)">Add to Cart</button>
+                    <button onclick="buyNow('Notebook', 50, document.getElementById('piece-notebook').value)">Buy Now</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="contact-info">
+            <p><strong>Address:</strong> Madhuvan, Kanti, Kalwari, Muzaffarpur, Bihar 843108</p>
+            <p><strong>Contact:</strong> 7992285652, 9934430553</p>
+        </div>
+
+        <!-- Social Media Icons -->
+        <div class="social-icons">
+            <a href="https://www.facebook.com/yourprofile" target="_blank">
+                <img src="icon/facebook.png" alt="Facebook Icon">
+            </a>
+            <a href="https://www.linkedin.com/in/yourprofile" target="_blank">
+                <img src="icon/linkedin.png" alt="LinkedIn Icon">
+            </a>
+            <a href="https://www.instagram.com/yourprofile" target="_blank">
+                <img src="icon/instagram.png" alt="Instagram Icon">
+            </a>
+        </div>
+        <p>&copy; 2024 SAH KIRANA STORE</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Function to handle search
+        function searchProduct() {
+            const query = document.getElementById('search-input').value.toLowerCase();
+            const products = document.querySelectorAll('.product');
+            products.forEach(product => {
+                const productName = product.querySelector('.product-info h3').textContent.toLowerCase();
+                if (productName.includes(query)) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+
+        // Function to filter products by category
+        function filterProducts(category) {
+            const products = document.querySelectorAll('.product');
+            products.forEach(product => {
+                const productCategory = product.getAttribute('data-category');
+                if (productCategory === category || category === 'all') {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+
+        // Initialize cart array to store products
+        let cart = [];
+        let cartCount = 0;
+
+        // Update cart notification count
+        function updateCartNotification() {
+            const cartNotification = document.getElementById('cart-notification');
+            cartNotification.textContent = cartCount;
+        }
+
+        // Add to cart function
+        function addToCart(productName, price, quantityOrVolume) {
+            // Add product to the cart
+            cart.push({ productName, price, quantityOrVolume });
+            cartCount++;
+            updateCartNotification();
+        }
+
+        // Buy Now function with redirection to buy-now.html
+        function buyNow(productName, price, quantityOrVolume) {
+            // Redirect to the buy-now page with product details in the query string
+            const url = `buy-now.html?product=${encodeURIComponent(productName)}&price=${price}&quantity=${quantityOrVolume}`;
+            window.location.href = url;
+        }
+    </script>
+</body>
+</html>
